@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Generate an array of 5 random 3-digit numbers
+numbers=( $(shuf -i 100-999 -n 5) )
+
+# Find the minimum and maximum values
+min_val=${numbers[0]}
+max_val=${numbers[0]}
+
+for i in "${numbers[@]}"
+do
+    if (( i < min_val ))
+    then
+        min_val=$i
+    fi
+    if (( i > max_val ))
+    then
+        max_val=$i
+    fi
+done
+
+# Print the results
+echo "Minimum value: $min_val"
+echo "Maximum value: $max_val"
